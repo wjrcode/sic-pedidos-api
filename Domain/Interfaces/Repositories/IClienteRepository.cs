@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Repositories
+namespace Domain.Interfaces.Repositories
 {
     public interface IClienteRepository
     {
@@ -13,6 +13,6 @@ namespace Domain.Repositories
         Task<IEnumerable<Cliente>> GetAllAsync();
         Task AddAsync(Cliente cliente);
         Task UpdateAsync(Cliente cliente);
-        Task DeleteAsync(long id);
+        Task DeleteAsync(Cliente cliente);
     }
 }

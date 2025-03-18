@@ -159,9 +159,7 @@ namespace Infrastructure.Data
                     .HasColumnType("date");
 
                 entity.Property(e => e.Pagamento)
-                    .HasColumnName("mb1_pagamento")
-                    .HasColumnType("bit")
-                    .HasMaxLength(2);
+                    .HasColumnName("mb1_pagamento");
 
                 entity.Property(e => e.Observacao)
                     .HasColumnName("mb1_observacao")

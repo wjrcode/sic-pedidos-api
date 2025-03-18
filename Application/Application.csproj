@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
@@ -16,8 +16,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Commands\" />
-    <Folder Include="Queries\" />
+    <Folder Include="Commands\Itens\" />
+    <Folder Include="Commands\Fpagamentos\" />
+    <Folder Include="Commands\Usuarios\" />
+    <Folder Include="Commands\Pedidos\" />
+    <Folder Include="Commands\Produtos\" />
+    <Folder Include="Queries\Fpagamentos\" />
+    <Folder Include="Queries\Itens\" />
+    <Folder Include="Queries\Pedidos\" />
+    <Folder Include="Queries\Produtos\" />
+    <Folder Include="Queries\Usuarios\" />
   </ItemGroup>
 
 </Project>

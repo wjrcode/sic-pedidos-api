@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Repositories
+namespace Domain.Interfaces.Repositories
 {
     public interface IEmpresaRepository
     {
@@ -13,6 +13,6 @@ namespace Domain.Repositories
         Task<IEnumerable<Empresa>> GetAllAsync();
         Task AddAsync(Empresa empresa);
         Task UpdateAsync(Empresa empresa);
-        Task DeleteAsync(long id);
+        Task DeleteAsync(Empresa empresa);
     }
 }
