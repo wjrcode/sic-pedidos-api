@@ -8,9 +8,9 @@ Accept: application/json
 POST {{Presentation_HostAddress}}/api/empresa
 Content-Type: application/json
 {
-    "Nome": "Wjrart",
-    "NomeFantasia": "Willian",
-    "CpfCnpj": "708.488.361-46" 
+    "Nome": "Ariana",
+    "NomeFantasia": "",
+    "CpfCnpj": "70871" 
 }
 
 ###

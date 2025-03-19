@@ -14,5 +14,6 @@ namespace Domain.Interfaces.Repositories
         Task AddAsync(Empresa empresa);
         Task UpdateAsync(Empresa empresa);
         Task DeleteAsync(Empresa empresa);
+        Task<bool> ExisteCpfCnpjAsync(string cpfCnpj);
     }
 }

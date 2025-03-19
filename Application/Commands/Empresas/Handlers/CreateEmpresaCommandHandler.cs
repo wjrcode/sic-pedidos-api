@@ -16,6 +16,11 @@ namespace Application.Commands.Empresas.Handlers
 
         public async Task<long> Handle(CreateEmpresaCommand command, CancellationToken cancellationToken)
         {
+            if (await _empresaRepository.ExisteCpfCnpjAsync(command.CpfCnpj))
+            {
+                throw new ArgumentException("Já existe uma empresa com o mesmo CpfCnpj.");
+            }
+
             var empresa = new Empresa
             {
                 Nome = command.Nome,

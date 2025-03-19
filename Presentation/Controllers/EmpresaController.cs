@@ -46,8 +46,16 @@ namespace Presentation.Controllers
         [HttpPost]
         public async Task<ActionResult<long>> Create([FromBody] CreateEmpresaCommand command)
         {
-            var result = await _mediator.Send(command);
-            return CreatedAtAction(nameof(GetById), new { id = result }, result);
+            try
+            {
+                var result = await _mediator.Send(command);
+                return CreatedAtAction(nameof(GetById), new { id = result }, result);
+            }
+            catch (ArgumentException ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+            
         }
 
         // PUT: api/Empresa/5

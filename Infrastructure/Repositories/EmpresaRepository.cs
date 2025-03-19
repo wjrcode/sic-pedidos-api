@@ -2,6 +2,7 @@
 using Domain.Entities;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
+using Application.Commands.Empresas;
 namespace Infrastructure.Repositories
 {
     public class EmpresaRepository : IEmpresaRepository
@@ -39,6 +40,11 @@ namespace Infrastructure.Repositories
         {
             _context.Empresas.Remove(empresa);
             await _context.SaveChangesAsync();
+        }
+
+        public async Task<bool> ExisteCpfCnpjAsync(string cpfCnpj)
+        {
+            return await _context.Empresas.AnyAsync(e => e.CpfCnpj == cpfCnpj);
         }
     }
 }
