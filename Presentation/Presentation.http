@@ -5,12 +5,27 @@ Accept: application/json
 
 ###
 
+GET {{Presentation_HostAddress}}/api/empresa/1
+Accept: application/json
+
+###
+
 POST {{Presentation_HostAddress}}/api/empresa
 Content-Type: application/json
 {
-    "Nome": "Ariana",
-    "NomeFantasia": "",
-    "CpfCnpj": "70871" 
+    "Emp_nome": "Willian",
+    "Emp_nfantasia": "wjrart",
+    "Emp_cpfcgc": "708.488.361-46" 
 }
 
 ###
+
+PUT {{Presentation_HostAddress}}/api/empresa/1
+Content-Type: application/json
+{
+    "Emp_nome": "Willians",
+    "Emp_nfantasia": "wjrart",
+    "Emp_cpfcgc": "708.488.361-46" 
+}
+
+###3

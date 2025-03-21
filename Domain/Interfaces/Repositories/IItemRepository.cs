@@ -1,18 +1,13 @@
 ﻿using Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Domain.Interfaces.Repositories
 {
     public interface IItemRepository
     {
-        Task<Item> GetByIdAsync(long id);
-        Task<IEnumerable<Item>> GetAllAsync();
-        Task AddAsync(Item item);
-        Task UpdateAsync(Item item);
+        Task<Mb2peditens> GetByIdAsync(long id);
+        Task<IEnumerable<Mb2peditens>> GetAllAsync();
+        Task AddAsync(Mb2peditens mb2peditens);
+        Task UpdateAsync(Mb2peditens mb2peditens);
         Task DeleteAsync(long id);
     }
 }

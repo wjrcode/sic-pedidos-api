@@ -13,29 +13,29 @@ namespace Infrastructure.Repositories
             _context = context;
         }
 
-        public async Task<Cliente> GetByIdAsync(long id)
+        public async Task<Clientes> GetByIdAsync(long id)
         {
             return await _context.Clientes.FindAsync(id);
         }
 
-        public async Task<IEnumerable<Cliente>> GetAllAsync()
+        public async Task<IEnumerable<Clientes>> GetAllAsync()
         {
             return await _context.Clientes.ToListAsync();
         }
 
-        public async Task AddAsync(Cliente cliente)
+        public async Task AddAsync(Clientes cliente)
         {
             await _context.Clientes.AddAsync(cliente);
             await _context.SaveChangesAsync();
         }
 
-        public async Task UpdateAsync(Cliente cliente)
+        public async Task UpdateAsync(Clientes cliente)
         {
             _context.Clientes.Update(cliente);
             await _context.SaveChangesAsync();
         }
 
-        public async Task DeleteAsync(Cliente cliente)
+        public async Task DeleteAsync(Clientes cliente)
         {
             _context.Clientes.Remove(cliente);
             await _context.SaveChangesAsync();

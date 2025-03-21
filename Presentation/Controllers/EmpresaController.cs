@@ -1,8 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MediatR;
-using Application.Commands.Empresas;
 using Domain.Entities;
-using Application.Queries.Empresas;
+using Application.Empresa.Commands.Create;
+using Application.Empresa.Commands.Update;
+using Application.Empresa.Commands.Delete;
+using Application.Empresa.Queries.Get;
+using Application.Empresa.Queries.List;
 
 namespace Presentation.Controllers
 {
@@ -17,9 +20,8 @@ namespace Presentation.Controllers
             _mediator = mediator;
         }
 
-        // GET: api/Empresa
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Empresa>>> GetAll()
+        public async Task<ActionResult<IEnumerable<Empresas>>> GetAll()
         {
             var query = new GetAllEmpresasQuery();
             var result = await _mediator.Send(query);
@@ -27,9 +29,8 @@ namespace Presentation.Controllers
             return Ok(result);
         }
 
-        // GET: api/Empresa/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Empresa>> GetById(long id)
+        public async Task<ActionResult<Empresas>> GetById(long id)
         {
             var query = new GetEmpresaByIdQuery { Id = id };
             var result = await _mediator.Send(query);
@@ -42,9 +43,8 @@ namespace Presentation.Controllers
             return Ok(result);
         }
 
-        // POST: api/Empresa
         [HttpPost]
-        public async Task<ActionResult<long>> Create([FromBody] CreateEmpresaCommand command)
+        public async Task<ActionResult<long>> Create([FromBody] CreateEmpresasCommand command)
         {
             try
             {
@@ -58,14 +58,14 @@ namespace Presentation.Controllers
             
         }
 
-        // PUT: api/Empresa/5
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(long id, [FromBody] UpdateEmpresaCommand command)
+        public async Task<IActionResult> Update(long id, [FromBody] UpdateEmpresasCommand command)
         {
-            if (id != command.Id)
-            {
-                return BadRequest();
-            }
+            command.Emp_id = id;
+            //if (id != command.Emp_id)
+            //{
+            //    return BadRequest();
+            //}
 
             var result = await _mediator.Send(command);
 
@@ -81,7 +81,7 @@ namespace Presentation.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(long id)
         {
-            var command = new DeleteEmpresaCommand { Id = id };
+            var command = new DeleteEmpresasCommand { Emp_id = id };
             var result = await _mediator.Send(command);
 
             if (!result)

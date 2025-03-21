@@ -16,11 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Commands\Itens\" />
-    <Folder Include="Commands\Fpagamentos\" />
-    <Folder Include="Commands\Usuarios\" />
-    <Folder Include="Commands\Pedidos\" />
-    <Folder Include="Commands\Produtos\" />
+    <Folder Include="Queries\Empresas\Handlers\" />
     <Folder Include="Queries\Fpagamentos\" />
     <Folder Include="Queries\Itens\" />
     <Folder Include="Queries\Pedidos\" />

@@ -2,10 +2,9 @@
 using Domain.Entities;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
-using Application.Commands.Empresas;
 namespace Infrastructure.Repositories
 {
-    public class EmpresaRepository : IEmpresaRepository
+    public class EmpresaRepository : IEmpresasRepository
     {
         private readonly AppDbContext _context;
 
@@ -14,29 +13,29 @@ namespace Infrastructure.Repositories
             _context = context;
         }
 
-        public async Task<Empresa> GetByIdAsync(long id)
+        public async Task<Empresas> GetByIdAsync(long id)
         {
             return await _context.Empresas.FindAsync(id);
         }
 
-        public async Task<IEnumerable<Empresa>> GetAllAsync()
+        public async Task<IEnumerable<Empresas>> GetAllAsync()
         {
             return await _context.Empresas.ToListAsync();
         }
 
-        public async Task AddAsync(Empresa empresa)
+        public async Task AddAsync(Empresas empresa)
         {
             await _context.Empresas.AddAsync(empresa);
             await _context.SaveChangesAsync();
         }
 
-        public async Task UpdateAsync(Empresa empresa)
+        public async Task UpdateAsync(Empresas empresa)
         {
             _context.Empresas.Update(empresa);
             await _context.SaveChangesAsync();
         }
 
-        public async Task DeleteAsync(Empresa empresa)
+        public async Task DeleteAsync(Empresas empresa)
         {
             _context.Empresas.Remove(empresa);
             await _context.SaveChangesAsync();
@@ -44,7 +43,7 @@ namespace Infrastructure.Repositories
 
         public async Task<bool> ExisteCpfCnpjAsync(string cpfCnpj)
         {
-            return await _context.Empresas.AnyAsync(e => e.CpfCnpj == cpfCnpj);
+            return await _context.Empresas.AnyAsync(e => e.Emp_cpfcgc == cpfCnpj);
         }
     }
 }

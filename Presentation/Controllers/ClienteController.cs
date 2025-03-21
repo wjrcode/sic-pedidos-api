@@ -1,4 +1,4 @@
-﻿using Application.Commands.Clientes;
+﻿using Application.Cliente.Create;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
